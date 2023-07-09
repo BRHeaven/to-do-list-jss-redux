@@ -1,8 +1,9 @@
 export const LightDark = {
     transparent: "transparent",
-    text: "#101011",
-    textTitle: "#000000",
+    text: "#333333",
+    textTitle: "#1a1a1a",
     background: "#bebdc1",
+    border: "#090708",
     backgroundBorder: "#202022",
     backgroundButton: "#f6f6f6",
     buttonBorder: "#303032",
@@ -11,5 +12,5 @@ export const LightDark = {
     hoverBackgroundButton: "#303032",
     hoverButtonBorder: "#f6f6f6",
     hoverInputBorder: "#404043",
-    hoverSelectBorder: "#404043",
+    hoverText: "#fff",
 };
