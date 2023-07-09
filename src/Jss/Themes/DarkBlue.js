@@ -1,0 +1,16 @@
+export const DarkBlue = {
+    transparent: "transparent",
+    text: "#0277BD",
+    textTitle: "#01579B",
+    background: "#212121",
+    border: "#039BE5",
+    backgroundBorder: "#0091EA",
+    backgroundButton: "#424242",
+    buttonBorder: "#03A9F4",
+    inputBorder: "#00B0FF",
+    selectBorder: "#00B0FF",
+    hoverBackgroundButton: "#0288D1",
+    hoverButtonBorder: "#03A9F4",
+    hoverInputBorder: "#0288D1",
+    hoverText: "#212121",
+};

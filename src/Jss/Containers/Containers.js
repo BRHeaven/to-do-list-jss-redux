@@ -6,4 +6,5 @@ export const Containers = styled.section`
     padding: 5px 10px;
     margin: 50px auto 0;
     border: 3px solid ${props => props.theme.backgroundBorder};
+    background-color: ${props => props.theme.background};
 `;

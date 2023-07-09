@@ -13,7 +13,7 @@ export const ButtonDefault = styled(button)`
     transition: all .4s;
     color: ${props => props.theme.text};
     background-color: ${props => props.theme.backgroundButton};
-    border: 1px solid ${props => props.theme.backgroundBorder};
+    border: 1px solid ${props => props.theme.buttonBorder};
     &:hover {
         color: ${props => props.theme.hoverText};
         background-color: ${props => props.theme.hoverBackgroundButton};

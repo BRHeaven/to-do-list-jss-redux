@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
+import handleReducer from "./handleReducer";
 const rootReducer = combineReducers({
-    themeReducer : null
+    handleReducer : handleReducer, 
 });
 export default rootReducer;

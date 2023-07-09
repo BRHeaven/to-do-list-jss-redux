@@ -6,4 +6,5 @@ const th = ({...resProps}) => (
 export const Th = styled(th)`
     margin: 0;
     border: 1px solid ${props => props.theme.border};
+    color : ${props => props.theme.textTitle};
 `;

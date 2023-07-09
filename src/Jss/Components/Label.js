@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 const Label = ({ forId, ...resProps }) => (
-    <label for={forId} {...resProps}></label>
+    <label htmlFor={forId} {...resProps}></label>
 );
 export const LabelTask = styled(Label)`
     display:flex;
@@ -11,4 +11,5 @@ export const LabelTask = styled(Label)`
     font-weight: bold;
     text-transform: capitalize;
     letter-spacing: .5px;
+    color: ${props => props.theme.text};
 `;

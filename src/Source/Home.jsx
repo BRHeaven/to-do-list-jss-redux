@@ -2,10 +2,8 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Containers } from '../Jss/Containers/Containers';
 import { connect } from 'react-redux';
-import { LightDark } from '../Jss/Themes/LightDark';
 import { Select } from '../Jss/Components/Select';
 import { Option } from '../Jss/Components/Option';
-import { DarkWhite } from '../Jss/Themes/DarkWhite';
 import { TextH1, TextH2, TextH3, TextTask } from '../Jss/Components/Text';
 import { FromTask } from '../Jss/Components/From';
 import { InputTask } from '../Jss/Components/Input.';
@@ -19,13 +17,13 @@ import { Tr } from '../Jss/Components/Tr';
 import { Th } from '../Jss/Components/Th';
 import { Td } from '../Jss/Components/Td';
 import { DivListButton, DivTask, DivText } from '../Jss/Components/Div';
+import { handleChangeTheme } from '../Redux/Actions/mainActions';
 
 function Home(props) {
-
   return (
-    <ThemeProvider theme={LightDark}>
+    <ThemeProvider theme={props.handle.themeColor}>
         <Containers>
-            <Select name="selectTheme" id="theme">
+            <Select name="selectTheme" id="theme" onChange={(i) => {let {value} = i.target; props.handleTheme(value);}}>
                 <Option value={1}>light dark</Option>
                 <Option value={2}>light blue</Option>
                 <Option value={3}>light red</Option>
@@ -103,5 +101,17 @@ function Home(props) {
         </Containers>
     </ThemeProvider>
   )
-}
-export default connect(null,null)(Home);
+};
+const mapStateToProps = state => {
+  return {
+    handle : state.handleReducer,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleTheme : (value) => {
+      dispatch(handleChangeTheme(value));
+    }
+  };
+};
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

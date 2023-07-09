@@ -5,5 +5,5 @@ const option = ({...resProps}) => (
 );
 export const Option = styled(option)`
     font-weight: lighter;
-    color: #101011;
+    color: ${props => props.theme.text};
 `;

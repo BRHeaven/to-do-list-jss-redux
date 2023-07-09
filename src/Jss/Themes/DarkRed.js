@@ -1,0 +1,16 @@
+export const DarkRed = {
+    transparent: "transparent",
+    text: "#C62828",
+    textTitle: "#B71C1C",
+    background: "#212121",
+    border: "#E53935",
+    backgroundBorder: "#D50000",
+    backgroundButton: "#424242",
+    buttonBorder: "#F44336",
+    inputBorder: "#EF5350",
+    selectBorder: "#EF5350",
+    hoverBackgroundButton: "#D32F2F",
+    hoverButtonBorder: "#D32F2F",
+    hoverInputBorder: "#FF1744",
+    hoverText: "#212121",
+};

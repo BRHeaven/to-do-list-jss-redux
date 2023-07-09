@@ -1,0 +1,16 @@
+export const LightBlue = {
+    transparent: "transparent",
+    text: "#1565C0",
+    textTitle: "#0D47A1",
+    background: "#bebdc1",
+    border: "#2196F3",
+    backgroundBorder: "#2962FF",
+    backgroundButton: "#f6f6f6",
+    buttonBorder: "#1E88E5",
+    inputBorder: "#1976D2",
+    selectBorder: "#1976D2",
+    hoverBackgroundButton: "#1E88E5",
+    hoverButtonBorder: "#f6f6f6",
+    hoverInputBorder: "#2979FF",
+    hoverText: "#fff",
+};
