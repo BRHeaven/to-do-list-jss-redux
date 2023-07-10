@@ -15,4 +15,7 @@ export const Select = styled(select)`
     color: ${props => props.theme.text};
     background-color: ${props => props.theme.background};
     border: 2px solid ${props => props.theme.selectBorder};
+    &:focus {
+        outline: none;
+    }
 `;

@@ -5,7 +5,7 @@ import { DarkWhite } from "../../Jss/Themes/DarkWhite";
 import { LightRed } from "../../Jss/Themes/LighrRed";
 import { LightBlue } from "../../Jss/Themes/LightBlue";
 import { LightDark } from "../../Jss/Themes/LightDark";
-import { CHANGE_THEME_COLOR } from "../Types/mainTypes";
+import { ADD_TASK, CHANGE_THEME_COLOR, COMPLETED_TASK } from "../Types/mainTypes";
 
 const stateHandle = {
     themeColor : LightDark,
@@ -13,7 +13,7 @@ const stateHandle = {
 };
 const handleReducer = ( state = stateHandle, action ) => {
     switch ( action.type ) {
-        case CHANGE_THEME_COLOR: 
+        case CHANGE_THEME_COLOR: {
             let updateState = state.themeColor;
             let index = parseInt(action.value);
             switch ( index ) {
@@ -27,7 +27,30 @@ const handleReducer = ( state = stateHandle, action ) => {
             }
             state.themeColor = updateState;
             return {...state};
-        ; break;
+        }; break;
+        case ADD_TASK : {
+            let updateState = state.task;
+            if (action.text.trim() !== '') {
+                let index = updateState.findIndex(stateTask => stateTask.text === action.text);
+                if (index !== -1) {
+                    alert("already in task, can't add!!!");
+                    return {...state};
+                };
+                let newTask = {id:Date.now(),text:action.text,flag:false};
+                updateState.push(newTask);
+            };
+            state.task = updateState;
+            return {...state};
+        }; break;
+        case COMPLETED_TASK : {
+            let updateState = state.task;
+            let index = updateState.findIndex(stateTask => stateTask.id === action.id);
+            if (index !== -1) {
+                updateState[index].flag = true;
+            }
+            state.task = updateState;
+            return {...state};
+        }; break;
         default: ;
     };
     return {...state};
