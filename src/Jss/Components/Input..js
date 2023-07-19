@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
-const Input = ({name, id, ...resProps}) => (
-    <input name={name} id={id} {...resProps}/>
+const Input = ({...resProps}) => (
+    <input {...resProps}/>
 );
 export const InputTask = styled(Input)`
     grid-column: 2 / span 5;

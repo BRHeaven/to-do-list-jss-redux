@@ -5,11 +5,12 @@ import { DarkWhite } from "../../Jss/Themes/DarkWhite";
 import { LightRed } from "../../Jss/Themes/LighrRed";
 import { LightBlue } from "../../Jss/Themes/LightBlue";
 import { LightDark } from "../../Jss/Themes/LightDark";
-import { ADD_TASK, CHANGE_THEME_COLOR, COMPLETED_TASK } from "../Types/mainTypes";
+import { ADD_TASK, CHANGE_THEME_COLOR, COMPLETED_TASK, EDIT_TASK, REMOVE_TASK, UPDATE_EDIT_TASK } from "../Types/mainTypes";
 
 const stateHandle = {
     themeColor : LightDark,
-    task : []
+    task : [],
+    editTask : {id:0,text:"",flag:false},
 };
 const handleReducer = ( state = stateHandle, action ) => {
     switch ( action.type ) {
@@ -51,6 +52,36 @@ const handleReducer = ( state = stateHandle, action ) => {
             state.task = updateState;
             return {...state};
         }; break;
+        case REMOVE_TASK : {
+            let updateState = state.task;
+            let index = updateState.findIndex(stateTask => stateTask.id === action.id);
+            if (index !== -1) {
+                updateState.splice(index,1);
+            };
+            state.task = updateState;
+            return {...state};
+        }; break;
+        case EDIT_TASK : {
+            let updateState = state;
+            let index = updateState.task.findIndex( state => state.id === action.id );
+            if ( index !== -1) {
+                updateState.editTask = updateState.task[index];
+            } 
+            state = updateState;
+            return {...state};
+        };
+        case UPDATE_EDIT_TASK : {
+            let updateState = state;
+            let index = updateState.task.findIndex( state => state.id === action.object);
+            console.log(action);
+            console.log(updateState.task);
+            console.log(index);
+            if ( index !== -1 ) {
+                updateState.task[index].text = action.text;
+            }
+            state = updateState;
+            return {...state};
+        };
         default: ;
     };
     return {...state};
